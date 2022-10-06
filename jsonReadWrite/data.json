@@ -1,0 +1,10 @@
+{
+    "hello world": {
+        "username": "helloWorldUser",
+        "password": "user@passwd"
+    },
+    "new web": {
+        "username": "user@usermail.com",
+        "password": "user@passwd"
+    }
+}
