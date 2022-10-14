@@ -1,3 +1,5 @@
+import time
+
 BACKGROUND_COLOR = "#B1DDC6"
 
 from tkinter import *
@@ -7,29 +9,41 @@ data = pandas.read_csv("data/french_words.csv")
 # toLearn=data.to_dict()
 # print(toLearn)
 toLearn=data.to_dict(orient="records")
-
-
+currentCard={}
 
 def nextCard():
-    currentCard=random.choice(toLearn)
+
     # print(currentCard)
     # canvas.config(cardTitle, text="French")
-    canvas.itemconfig(cardTitle, text="French")
-    canvas.itemconfig(cardWord, text=currentCard["French"])
-    pass
+    global currentCard,flipTimer
+    myWindow.after_cancel(flipTimer)
+    currentCard = random.choice(toLearn)
 
+    canvas.itemconfig(cardTitle, text="French", fill="black")
+    canvas.itemconfig(cardWord, text=currentCard["French"], fill="black")
+    canvas.itemconfig(cardBackground,image=frontImg)
+    flipTimer=myWindow.after(3000, func=flipCard)
+
+def flipCard():
+    canvas.itemconfig(cardTitle, text="English", fill="white")
+    canvas.itemconfig(cardWord, text=currentCard["English"], fill="white")
+    canvas.itemconfig(cardBackground, image=backImg)
 
 myWindow = Tk()
 myWindow.title("Flashy")
 myWindow.config(padx=50,pady=50, background=BACKGROUND_COLOR)
 
+flipTimer=myWindow.after(3000,func=flipCard)
+
 rightImg=PhotoImage(file="images/right.png")
 wrongImg=PhotoImage(file="images/wrong.png")
 frontImg=PhotoImage(file="images/card_front.png")
+backImg=PhotoImage(file="images/card_back.png")
 
 canvas= Canvas(height=526, width=800, highlightthickness=0)
-canvas.create_image(400,263, image=frontImg)
-canvas.grid(row=0,column=0, columnspan=2) # WTF is this?
+
+cardBackground=canvas.create_image(400,263, image=frontImg)
+canvas.grid(row=0,column=0, columnspan=2)
 canvas.config(background=BACKGROUND_COLOR)
 
 cardTitle=canvas.create_text(400,163,text="", font=("Arial",25,"italic"))
