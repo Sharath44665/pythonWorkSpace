@@ -3,7 +3,7 @@ import datetime as dt
 now=dt.datetime.now()
 year=now.year
 month=now.month
-weekDay=now.weekday() # 0- sunday, 1- Monday, 2- Tuesday, ... 6- sunday
+weekDay=now.weekday() # 6- sunday, 0- Monday, 1- Tuesday, ... 6- sunday
 
 print(now)
 print(year)
