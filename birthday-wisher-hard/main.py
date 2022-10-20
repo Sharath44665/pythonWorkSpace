@@ -3,6 +3,10 @@ import pandas, random, smtplib
 import datetime as dt
 import pandas as pd
 
+''' to run in cloud use python anywhere, update everything exactly like as this project
+ schedule a task
+ 
+ '''
 # 1. Update the birthdays.csv
 now = dt.datetime.now()
 oldDF = pandas.read_csv("birthdays.csv")
