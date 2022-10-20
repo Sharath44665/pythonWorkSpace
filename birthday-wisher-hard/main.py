@@ -46,17 +46,17 @@ if now.month == month and now.day == day:
         myFile.writelines(getFileData)
     pass
 # 4. Send the letter generated in step 3 to that person's email address.
-myEmail = "myemail@noreply.com"
-myPassword = "my passwd"  # app passwd of gmail
+    myEmail = "myemail@noreply.com"
+    myPassword = "my passwd"  # app passwd of gmail
 
-with open(f"letter_templates/letter_{no}.txt", mode="r") as myFile:
-    getFileData = myFile.readlines()
-    emailBody = ""
-    for val in getFileData:
-        emailBody = emailBody + val
+    with open(f"letter_templates/letter_{no}.txt", mode="r") as myFile:
+        getFileData = myFile.readlines()
+        emailBody = ""
+        for val in getFileData:
+            emailBody = emailBody + val
 
-with smtplib.SMTP("smtp.gmail.com") as connection:
-    connection.starttls()
-    connection.login(user=myEmail, password=myPassword)
-    connection.sendmail(from_addr=myEmail, to_addrs=recieverMail,
-                        msg=f"Subject:Happy Birthday {userName}!!!\n\n {emailBody}")
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=myEmail, password=myPassword)
+        connection.sendmail(from_addr=myEmail, to_addrs=recieverMail,
+                            msg=f"Subject:Happy Birthday {userName}!!!\n\n {emailBody}")
