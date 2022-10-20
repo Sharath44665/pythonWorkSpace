@@ -1,4 +1,4 @@
-Dear [NAME],
+Hey [NAME],
 
 It's your birthday! Have a great day!
 
