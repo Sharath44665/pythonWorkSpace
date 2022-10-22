@@ -1,4 +1,4 @@
-import requests
+import requests,smtplib,time
 from datetime import datetime
 
 MY_LAT = 13.340881 # Your latitude
@@ -27,6 +27,25 @@ sunrise = int(data["results"]["sunrise"].split("T")[1].split(":")[0])
 sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
 
 time_now = datetime.now()
+
+print(sunrise)
+print(sunset)
+print(time_now.hour)
+print(type(time_now.hour))
+
+myEmail="someone@noreply.com"
+myPasswd="hello world" # app passwd of gmail
+recieverEmail="reciever@noreply.com"
+
+if MY_LAT<=iss_latitude <= MY_LAT+5 and MY_LONG<=iss_longitude <= MY_LONG+5:
+    if time_now.hour >= sunset or time_now.hour <= sunrise:
+        for _ in range(3):
+            with smtplib.SMTP("smtp.gmail.com") as connection:
+                connection.starttls()
+                connection.login(user=myEmail, password=myPasswd)
+                connection.sendmail(from_addr=myEmail, to_addrs=recieverEmail,
+                                    msg="subject: ISS is over head!!! \n\n Please look into the sky")
+            time.sleep(60)
 
 #If the ISS is close to my current position
 # and it is currently dark
