@@ -6,7 +6,8 @@ THEME_COLOR = "#375362"
 
 class QuizInterface:
     def __init__(self, quizBrain: QuizBrain):
-        self.quiz=quizBrain
+        self.score=0
+        self.quiz = quizBrain
         self.window = Tk()
         self.window.title("Quizzler")
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
@@ -34,14 +35,24 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
-        q_text=self.quiz.next_question()
+        self.canvas.config(background="white")
+        q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.questionText, text=q_text)
 
     def getTrueButtonPress(self):
-        self.quiz.check_answer("true")
-        self.get_next_question()
+        isCheck = self.quiz.check_answer("true")
+        self.changeColor(isCheck)
 
     def getFalseButtonPress(self):
-        self.quiz.check_answer("false")
-        self.get_next_question()
+        isCheck = self.quiz.check_answer("false")
+        self.changeColor(isCheck)
 
+    def changeColor(self, value: bool):
+        if value:
+            self.canvas.config(background="green")
+            self.score += 1
+        else:
+            self.canvas.config(background="red")
+
+        self.window.after(1000, self.get_next_question)
+        self.scoreLable.config(text=f"Score: {self.score}/{self.quiz.question_number}")
