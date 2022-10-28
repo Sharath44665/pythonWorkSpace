@@ -5,7 +5,7 @@ age = 17
 print(age)
 
 
-def ageCheck(age:int):
+def ageCheck(age: int) -> bool:  # meaning: return type is boolean
     if age < 18:
         return False
     else:
