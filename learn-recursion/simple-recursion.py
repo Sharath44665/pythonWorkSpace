@@ -1,5 +1,5 @@
 def recursion(val):
-    if val == 10:
+    if val >= 10:
         return val
     return recursion(val+1)
 
