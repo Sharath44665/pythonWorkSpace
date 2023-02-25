@@ -6,5 +6,6 @@ def sumOfNaturalNumbers(num, sum=0):
     return sumOfNaturalNumbers(num-1, sum)
 
 # num = 5
-num = 10
+# num = 10
+num = 2
 print(sumOfNaturalNumbers(num))
