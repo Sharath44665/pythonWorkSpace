@@ -35,7 +35,9 @@ def merge(array, firstIdx, lastIdx, mid):
         k += 1
 
     for idx in range(firstIdx, lastIdx+1):
-        array[idx]= temp[idx-firstIdx]
+        array[idx]= temp[idx-firstIdx] # firstIdx is helpful 
+        # when we are in right side of the array so that we can adjust temp idx values
+        # if firstIdx = 3, lastIdx = 5 temp should be called from temp[0] or temp[1] or temp[2] ...
 
 
 array = [20,-5,10,3,2,0]
