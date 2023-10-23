@@ -66,9 +66,5 @@ class Snake:
             self.snakeList[0].setheading(RIGHT)
 
 
-    def reset(self):
-        for part in self.snakeList:
-            part.goto(-800,800)
-        self.snakeList.clear()
-        self.createDefaultSnake()
+   
 
