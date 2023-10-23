@@ -29,23 +29,33 @@ while isGameOn:
     time.sleep(0.1)
     snake.move()
 
+    # print(f"snake position:{snakeHead.position()}")
     # detect food
     if snakeHead.distance(getFood)<15:
         getFood.changePosition()
         # increase length of snake
         snake.increaseLength()
         # update score
-        score.update()
-
+        score.increaseScore()
+    # print(f"head position: {snakeHead.position()}")
     # detect collision with wall:
     if snakeHead.xcor() > 290 or snakeHead.xcor() < -290 or snakeHead.ycor() > 290 or snakeHead.ycor() < -290:
-        score.gameOver()
-        isGameOn = False
+        # score.gameOver()
+        score.reset()
+        snake.reset()
+        snakeHead = snake.snakeList[0]
+        # isGameOn = False
 
     for singleSnake in snake.snakeList[1:]:
-        if snakeHead.distance(singleSnake) < 10:
-            isGameOn = False
-            score.gameOver()
+        if singleSnake.distance(snakeHead) < 8:
+            # print(f"distance: {snakeHead.distance(singleSnake)}")
+            # isGameOn = False
+            # score.gameOver()
+            score.reset()
+            snake.reset()
+            snakeHead = snake.snakeList[0]
+
+
 
     # for singleSnake in snake.snakeList:
     #     if snakeHead == singleSnake:
