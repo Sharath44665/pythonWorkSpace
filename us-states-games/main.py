@@ -53,9 +53,11 @@ while isEnterState:
         userEnteredState[stateName] = [xValue,yValue]
     if stateName == "Exit":
         break
-for state in allStateList:
-    if state not in userEnteredState:
-        notStateList.append(state)
+# for state in allStateList:
+#     if state not in userEnteredState:
+#         notStateList.append(state)
+
+notStateList = [state for state in allStateList if state not in userEnteredState]
 
 notEntered ={
     "not entered states" : notStateList

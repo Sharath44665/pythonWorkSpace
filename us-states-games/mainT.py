@@ -13,7 +13,7 @@ stateData = pandas.read_csv("50_states.csv")
 isStateEntered = True
 stateList = stateData.state.tolist()
 userEnteredState ={}
-notEnteredStatesList = []
+# notEnteredStatesList = []
 counter = 0
 while isStateEntered:
     stateName = screen.textinput(title=f"{counter}/50 Correct states", prompt="Enter the state name:").title()
@@ -33,6 +33,7 @@ while isStateEntered:
         writeTurtle.goto(x=xValue, y=yValue)
         if stateName not in userEnteredState:
             counter += 1
+
         userEnteredState[stateNameFromCSV] = [xValue, yValue]
         # writeTurtle.write(stateName,align="center",font=('Arial', 12, 'normal'))
         writeTurtle.write(stateNameFromCSV, align="center", font=('Arial', 12, 'normal'))
@@ -41,9 +42,12 @@ while isStateEntered:
 
         isStateEntered = False
 
-for state in stateList:
-    if state not in userEnteredState:
-        notEnteredStatesList.append(state)
+# for state in stateList:
+#     if state not in userEnteredState:
+#         notEnteredStatesList.append(state)
+
+notEnteredStatesList = [state for state in stateList if state not in userEnteredState]
+
 notEnteredStates = {"not entered": notEnteredStatesList}
 notEntered = pandas.DataFrame(notEnteredStates)
 notEntered.to_csv("not entered states.csv")
