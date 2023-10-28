@@ -33,8 +33,18 @@ data = pandas.read_csv("nato_phonetic_alphabet.csv")
 alphabetDictionary = {row.letter: row.code for idx, row in data.iterrows()}
 # print(alphabetDictionary)
 # TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-userName = input("Enter your name: ").upper()
-correspondingWords = [alphabetDictionary[letter] for letter in userName]
+
+userEntry = True
+while userEntry:
+    try:
+        userName = input("Enter your name: ").upper()
+        correspondingWords = [alphabetDictionary[letter] for letter in userName]
+    except KeyError:
+        print("Only alphabets are allowed, you are entering Numbers\nTry again...")
+        userEntry = True
+    else:
+        userEntry = False
+
 print(correspondingWords)
 
 
