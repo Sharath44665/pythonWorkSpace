@@ -81,7 +81,7 @@ def savePassword():
                 json.dump(data, passwdFile, indent=4) # dump it to json
         except FileNotFoundError:
             with open("passwordData.json", mode="w") as passwdFile:
-                json.dump(data, passwdFile, indent=4)
+                json.dump(userData, passwdFile, indent=4)
 
 
         webUrlEntry.delete(0, END)
