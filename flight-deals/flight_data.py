@@ -29,23 +29,3 @@ class FlightData:
         # locationData = response.json()
         return response.json()
 
-
-
-    # def searchFlight(self):
-    #     today = datetime.datetime.now()
-    #     todayFormat = today.strftime("%d/%m/%Y")
-    #
-    #     nextDate = today + timedelta(days=15)
-    #     nextDateFormat = nextDate.strftime("%d/%m/%Y")
-    #
-    #     parameters = {
-    #         "fly_from": "FRA",
-    #         "date_from" : f"{todayFormat}",
-    #         "date_to" : f"{nextDateFormat}"
-    #     }
-    #
-    #     searchEndpoint = "https://api.tequila.kiwi.com/v2/search"
-    #
-    #     response = requests.get(url=searchEndpoint, params=parameters, headers= self.myHeader)
-    #     print(response.text)
-    pass
