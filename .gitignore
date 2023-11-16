@@ -5,3 +5,4 @@ modules.xml
 profiles_settings.xml
 vcs.xml
 *.pyc
+*Token*
