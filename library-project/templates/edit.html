@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>edit with ID</title>
+</head>
+<body>
+    <h2>Edit Rating</h2>
+    <p>
+        Book Name : {{ editBook.name }}
+        current rating : {{ editBook.rating }}
+    </p>
+        <form  method="post">
+            <label for="changeRating">Change Rating</label>
+            <input id="changeRating" type="text" name="changeRating" >
+            <input type="submit" value="update" >
+        </form>
+
+
+
+
+    <a href="{{url_for('home')}}">Return to Home</a>
+
+<!--        <a href="{{url_for('home')}}" role="button">Submit</a>-->
+<!--        <input type="submit" value="update" >-->
+
+
+</body>
+</html>
