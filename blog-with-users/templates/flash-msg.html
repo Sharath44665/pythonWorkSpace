@@ -1,0 +1,11 @@
+<div>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="text-danger">
+          {% for msg in messages %}
+            <li>{{msg}}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</div>
