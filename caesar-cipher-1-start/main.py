@@ -81,6 +81,8 @@ def decrypt(text, shift):
 
 decision = "y"
 
+# starting point of the program:
+
 while decision == "y" or decision == "yes":
     decisionMaker()
     print("-----------------------------------")
