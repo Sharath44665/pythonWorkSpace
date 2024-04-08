@@ -10,6 +10,10 @@ print(newName) # ['S', 'h', 'a', 'r', 'a', 't', 'h']
 doubleList = [val*2 for val in range(1,5)]
 print(doubleList) # [2, 4, 6, 8]
 
+print("squaring list:")
+squareList = [val*val for val in range(1,6)]
+print(squareList)
+
 names = ["Ada", "Remy", "Kylen", "Alex", "Tristan", "Lian", "Jayleen","Trace"]
 # generate a list containing less than or equal to 4 letters of names
 namesOf4char = [newName for newName in names if len(newName) < 5]
