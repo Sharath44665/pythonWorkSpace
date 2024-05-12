@@ -14,8 +14,8 @@ webHeader = {
 todayDate = datetime.datetime.now()
 timeFormat = todayDate.strftime("%X")
 myFormat = todayDate.strftime("%d/%m/%Y")
-# print(timeFormat)
-# print(myFormat)
+# print(timeFormat) # 13:36:13
+# print(myFormat) # 12/05/2024
 
 
 requestBody = {
