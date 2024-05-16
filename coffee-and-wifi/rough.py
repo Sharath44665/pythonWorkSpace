@@ -13,7 +13,7 @@ def custom_validator(roughForm, field):
     if len(field.data) < 8:
         raise ValidationError("less than 8, enter more ")
 class MyForm(FlaskForm):
-    my_field = StringField('My Field', validators=[validators.InputRequired(),custom_validator()])
+    my_field = StringField('My Field', validators=[validators.InputRequired(),custom_validator])
     submit = SubmitField(label="Enter")
 
 
