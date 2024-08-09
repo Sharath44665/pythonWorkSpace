@@ -38,12 +38,15 @@ outputAr = [0 for _ in range(len(`arr`))]
 
 Output Array: [0, 0, 0, 0, 0, 0, 0] // Initialize output array
 
+counter array: [0, 1, 3, 5, 6, 6, 6, 6, 7]
+
 reverseArray =  [1, 3, 3, 8, 2, 2, 4]
 Placing elements:
 - Place 1 at index 0: Output Array: [1, 0, 0, 0, 0, 0, 0]
-- Place 3 at index 5: Output Array: [1, 0, 0, 0, 0, 3, 0]
-- Place 3 at index 4: Output Array: [1, 0, 0, 0, 3, 3, 0]
-- Place 2 at index 2: Output Array: [1, 0, 2, 0, 3, 3, 0]
-- Place 2 at index 1: Output Array: [1, 2, 2, 0, 3, 3, 0]
-- Place 4 at index 3: Output Array: [1, 2, 2, 4, 3, 3, 0]
-- Place 8 at index 6: Output Array: [1, 2, 2, 3, 3, 4, 8] 
+- Place 3 at index 4: Output Array: [1, 0, 0, 0, 3, 0, 0]
+- Place 3 at index 3: Output Array: [1, 0, 0, 3, 3, 0, 0]
+- Place 8 at index 6: Output Array: [1, 2, 2, 3, 3, 0, 8]
+- Place 2 at index 2: Output Array: [1, 0, 2, 3, 3, 0, 8]
+- Place 2 at index 1: Output Array: [1, 2, 2, 3, 3, 0, 8]
+- Place 4 at index 5: Output Array: [1, 2, 2, 3, 3, 4, 8]
+ 
