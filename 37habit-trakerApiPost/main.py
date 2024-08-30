@@ -1,9 +1,9 @@
-import requests,datetime
-
-webUrl= "https://pixe.la/v1/users"
-TOKEN = "dvgdfrSf6F2GMqkVe"
-USERNAME = "sharath44665"
-GRAPH_ID = "graph1"
+import requests,datetime, pandas
+csvData = pandas.read_csv("./token.csv")
+webUrl= csvData.get("webUrl")[0]
+TOKEN = csvData.get("TOKEN")[0]
+USERNAME = csvData.get("USERNAME")[0]
+GRAPH_ID = csvData.get("GRAPH_ID")[0]
 
 userParamerters ={
     "token" : TOKEN,
@@ -15,8 +15,8 @@ userParamerters ={
 # creating user
 # response = requests.post(url=webUrl, json=userParamerters)  # requests.POST()
 # # response.raise_for_status()
-# # print(response.url)
-# print(response.text)
+# print(response.url) # https://pixe.la/v1/users
+# print(response.text) # {"message":"This user already exist.","isSuccess":false}
 
 # Create a graph definition
 # graphConfig ={
@@ -27,6 +27,9 @@ userParamerters ={
 #     "color" : "sora"
 # }
 #
+
+
+
 webHeader= {
     "X-USER-TOKEN": TOKEN
 }
@@ -39,7 +42,7 @@ now = datetime.datetime(day=28,month=10,year=2023)
 todayDate = now.date()
 
 formatDate = todayDate.strftime("%G%m%d")
-# print(formatDate)
+print(formatDate)
 
 # Post value to the graph
 postingConfig = {
@@ -47,8 +50,8 @@ postingConfig = {
     "quantity":"8.5"
 }
 #
-# response = requests.post(url=f"{webUrl}/{USERNAME}/graphs/{GRAPH_ID}", json=postingConfig, headers=webHeader)
-# print(response.text)
+response = requests.post(url=f"{webUrl}/{USERNAME}/graphs/{GRAPH_ID}", json=postingConfig, headers=webHeader)
+print(response.text)
 
 # update a graph
 updateEndpoint = f"{webUrl}/{USERNAME}/graphs/{GRAPH_ID}/{formatDate}"
@@ -65,5 +68,4 @@ updateConfig={
 deleteEndpoint = f"{webUrl}/{USERNAME}/graphs/{GRAPH_ID}/{formatDate}"
 response = requests.delete(url=deleteEndpoint, headers=webHeader)
 print(response.text)
-
 

@@ -12,7 +12,7 @@ import requests
 # response.raise_for_status()
 # print("everything is ok")
 
-api_key = "344dcfaf1bc9eb7041ea7c5b07cc4b7d"
+api_key = ""
 LATITUDE = 3.154430
 LONGITUDE = 101.715103
 
