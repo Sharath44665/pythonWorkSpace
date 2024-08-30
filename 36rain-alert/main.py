@@ -12,7 +12,7 @@ import requests
 # response.raise_for_status()
 # print("everything is ok")
 
-api_key = ""
+api_key = "344dcfaf1bc9eb7041ea7c5b07cc4b7d"
 LATITUDE = 3.154430
 LONGITUDE = 101.715103
 
@@ -24,9 +24,10 @@ parameters = {
     "exclude": "current,minutely,daily",
 }
 
-response =requests.get(url=API_ADDRESS, params=parameters)
+response = requests.get(url=API_ADDRESS, params=parameters)
 response.raise_for_status()
 hourlyList = response.json()["hourly"]
+# print(hourlyList)
 
 isRaining = False
 for idx in range(12):
