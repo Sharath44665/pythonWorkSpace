@@ -20,7 +20,8 @@ def userPage(userName):
     genderData = getGender(userName)
     return render_template("userName.html", userTitle=jsonData["name"],
                            userName=jsonData["name"].title(),
-                           ageNo=jsonData["age"], gender= genderData["gender"] )
+                           ageNo=jsonData["age"], gender= genderData["gender"])
 if __name__ == "__main__":
     app.run(debug=True)
+
 

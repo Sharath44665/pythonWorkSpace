@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sharath</title>
+</head>
+<body>
+    <h1>Hello {{username}}. how are you Doing?</h1>
+    <h2>Rondom number is {{num}}, refresh to see new random Number </h2>
+    <p>
+        Look for <a href="{{url_for('blogPost',printNumTerminal = 2)}}">Blog</a>!!!
+    </p>
+    <p>
+        allBlogs: <a href="{{url_for('displayAllOfJson')}}">can be found here</a>
+    </p>
+
+</body>
+</html>
