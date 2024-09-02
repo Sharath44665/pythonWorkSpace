@@ -61,8 +61,6 @@ def home():
     all_books = db.session.execute(db.select(Book)).scalars()
     all_books = list(all_books.all())
 
-
-
     return render_template("index.html", books=all_books)
 
 
