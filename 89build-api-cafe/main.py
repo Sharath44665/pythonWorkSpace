@@ -3,6 +3,7 @@ from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import random
 
+# creating api using postman.
 '''
 Install the required packages first: 
 Open the Terminal in PyCharm (bottom left). 
@@ -105,7 +106,7 @@ def dbAddRecords():
         seats=request.form.get("seats"),
         has_toilet=bool(request.form.get("has_toilet")),
         has_wifi=bool(request.form.get("has_wifi")),
-            has_sockets=bool(request.form.get("has_sockets")),
+        has_sockets=bool(request.form.get("has_sockets")),
         can_take_calls=bool(request.form.get("can_take_calls")),
         coffee_price=f"£{request.form.get('coffee_price')}"
     )

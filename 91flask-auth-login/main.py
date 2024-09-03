@@ -116,7 +116,7 @@ def secrets():
     print(current_user.name)
     return render_template("secrets.html", name = current_user.name, logged_in=current_user.is_authenticated)
 
-
+    
 @app.route('/logout')
 def logout():
     logout_user()
