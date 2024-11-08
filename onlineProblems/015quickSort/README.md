@@ -21,3 +21,18 @@ after ending the loop, place the **pivot value** at **arr[pointer]**
 if pointer+1 < high, stack.append((pointer+1, high))
 
 ### second loop: repeat the same
+
+---
+
+in the second example:
+
+one.py
+
+[9, 7, 5, 3, 1, 6, 8, 4, 2]
+
+pivot = 9, place the pivot value in right position
+
+understand with debugging
+
+
+
